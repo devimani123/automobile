@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <style>
+    .phone-container {
+      display: flex;
+      align-items: center;
+    }
+    .phone-container select,
+    .phone-container input {
+      margin-right: 10px;
+    }
+    .fuel-type-container {
+      display: inline; /* Makes the radio buttons inline */
+    }
+    .fuel-type-container input,
+    .fuel-type-container label {
+      display: inline-block;
+      margin-right: 15px; /* Adds space between each radio button */
+    }
+  </style>
+</head>
+<body>
+  <h2>Book Your Service</h2>
+
+  <form action="booking.html" method="POST" autocomplete="off">
+    <!-- Name Field -->
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required minlength="3" placeholder="Enter your full name">
+    <br><br>
+
+    <!-- Email Field -->
+    <label for="email">Email Id:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email">
+    <br><br>
+
+    <!-- Phone Number Field with Country Code Dropdown -->
+    <label for="phone">Phone Number:</label>
+    <div class="phone-container">
+      <!-- Country Code Dropdown -->
+      <select id="country-code" name="country-code" required>
+        <option value="+1">+1 (USA)</option>
+        <option value="+44">+44 (UK)</option>
+        <option value="+91">+91 (India)</option>
+        <option value="+61">+61 (Australia)</option>
+        <option value="+81">+81 (Japan)</option>
+        <!-- Add more options as needed -->
+      </select>
+
+      <!-- Phone Number Input -->
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="Enter your 10-digit phone number">
+    </div>
+    <br><br>
+
+    <!-- Select Service Dropdown -->
+    <label for="service">Select Service:</label>
+    <select id="service" name="service" required>
+      <option value="private-maintenance">Private Maintenance Service</option>
+      <option value="body-repair">Body Repair Service</option>
+      <option value="car-care">Car Care Service</option>
+    </select>
+    <br><br>
+
+    <!-- Car Make Field -->
+    <label for="car-make">Car Make:</label>
+    <input type="text" id="car-make" name="car-make" required placeholder="Enter car make">
+    <br><br>
+
+    <!-- Car Model Field -->
+    <label for="car-model">Car Model:</label>
+    <input type="text" id="car-model" name="car-model" required placeholder="Enter car model">
+    <br><br>
+
+    <!-- Fuel Type Radio Buttons (Inline) -->
+    <label>Fuel Type:</label>
+    <div class="fuel-type-container">
+      <input type="radio" id="petrol" name="fuel-type" value="petrol" required>
+      <label for="petrol">Petrol</label>
+
+      <input type="radio" id="diesel" name="fuel-type" value="diesel" required>
+      <label for="diesel">Diesel</label>
+
+      <input type="radio" id="LPG" name="fuel-type" value="LPG" required>
+      <label for="LPG">LPG</label>
+
+      <input type="radio" id="others" name="fuel-type" value="others" required>
+      <label for="others">Others</label>
+    </div>
+    <br><br>
+
+    <!-- Kilometers Ran Field -->
+    <label for="kilometers">Kilometers Ran:</label>
+    <input type="number" id="kilometers" name="kilometers" required min="0" placeholder="Enter kilometers ran">
+    <br><br>
+
+    <!-- Submit Button -->
+    <button type="submit">Schedule an Appointment</button>
+  </form>
+</body>
+</html>
